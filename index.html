@@ -1,0 +1,205 @@
+<head>
+  <meta charset="utf-8">
+  <title>Tommy web-Apps</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+</head>
+
+<style>
+  /* SCOPED STYLE KHUSUS TOOLBOX */
+  #toolbox-container {
+    padding: 10px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  #toolbox-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  #toolbox-icon { font-size: 36px; opacity: .95; }
+  #toolbox-divider {
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin-left: 6px;
+  }
+
+  #toolbox-intro {
+    font-size: 18px;
+    line-height: 1.15;
+    font-weight: 600;
+  }
+
+  #toolbox-options {
+    margin-top: 12px;
+    display: grid;
+    gap: 8px;
+  }
+
+  .toolbox-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform .08s ease, background .12s ease, box-shadow .12s ease;
+    border: solid 0.5px #ccc;
+  }
+
+  .toolbox-button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+  }
+
+  .toolbox-button i {
+    text-align: center;
+    font-size: 25px;
+    opacity: .95;
+  }
+
+  .toolbox-text { font-weight: 700; }
+  .toolbox-sub { display:block; font-weight:500; font-size:12px; opacity:.85; margin-top:2px; }
+  .toolbox-blue  { color: #7293f6; }
+</style>
+
+<div id="toolbox-container">
+  <div id="toolbox-header">
+    <div id="toolbox-icon" style="font-size: 27px; font-weight:bold;">Menu <i class="fas fa-file-invoice" style="font-size:20px;"></i></div>
+    <div id="toolbox-divider"></div>
+  </div>
+
+  <div id="toolbox-intro">
+    Alat tambahan 
+  </div>
+
+  <div id="toolbox-options">
+    <button class="toolbox-button" onclick="toolboxGo('idcard')">
+      <i class="far fa-id-card toolbox-blue"></i>
+      <div>
+        <span class="toolbox-text">iD card pw</span>
+        <span class="toolbox-sub">Generator kartu identitas palsu (demo)</span>
+      </div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('font')">
+      <i class="fa-brands fa-facebook toolbox-blue"></i>
+      <div>
+        <span class="toolbox-text">Font nama Unik fb</span>
+        <span class="toolbox-sub">Buat nama keren untuk profil</span>
+      </div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('font2')">
+      <i class="fa fa-foursquare toolbox-blue"></i>
+      <div>
+        <span class="toolbox-text">Font Seni Generator </span>
+        <span class="toolbox-sub">Buat nama keren kreatif</span>
+      </div>
+    </button>
+    <button class="toolbox-button" onclick="toolboxGo('font3')">
+      <i class="fas fa-image toolbox-blue"></i>
+      <div>
+        <span class="toolbox-text">Font Seni Generator Gambar</span>
+        <span class="toolbox-sub">Buat Gambar keren kreatif</span>
+      </div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('seni')">
+      <i class="fa-brands fa-slack toolbox-blue"></i>
+      <div>
+        <span class="toolbox-text">Seni Teks</span>
+        <span class="toolbox-sub">ASCII art & text-art</span>
+      </div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('glitch')">
+      <i class="fas fa-barcode spotify toolbox-blue"></i>
+      <div>
+        <span class="toolbox-text">Glitch Text Generator</span>
+        <span class="toolbox-sub">Efek glitch ke teks</span>
+      </div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('chars')">
+      <i class="fa-solid fa-font toolbox-blue"></i>
+      <div>
+        <span class="toolbox-text">Global Unicode Explorer</span>
+        <span class="toolbox-sub">Simbol & karakter khusus</span>
+      </div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('catatan')">
+      <i class="fa-solid fa-book-open toolbox-blue"></i>
+      <div>
+        <span class="toolbox-text">Blok koreksi Dua catatan</span>
+        <span class="toolbox-sub">Editor catatan sederhana</span>
+      </div>
+    </button>
+  </div>
+</div>
+
+<script>
+function toolboxGo(page){
+  const url = {
+    idcard: 'https://tommydev27.github.io/FakeID/',
+    seni: 'https://tommydev27.github.io/generatorascii/',
+    hitung: 'https://tommydev27.github.io/Penghutung-karakter/',
+    font: 'https://tommydev27.github.io/font-unikrsfb/',
+   font3: 'https://tommydev27.github.io/tommy.website3/',
+   font2: 'https://tommydev27.github.io/tm-textGz',
+    glitch: 'https://tommydev27.github.io/glitch-text/',
+    chars: 'https://tommydev27.github.io/unicode-explorerTM/',
+    catatan: 'https://tommydev27.github.io/Blok-dua-catatan-koreksi-catatan-/'
+  }[page];
+  if (url) location.href = url;
+}
+</script>
+<style>
+  /* FOOTER KHUSUS TOOLBOX v0.27 */
+  #footer27 {
+    margin-top: 24px;
+    padding: 16px;
+    text-align: center;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(90deg, #0f172a 0%, #111827 100%);
+    color: #aab3d0;
+    font-size: 13.5px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.3) inset;
+    letter-spacing: 0.4px;
+  }
+
+  #footer27 span {
+    color: #38bdf8;
+    font-weight: 600;
+  }
+
+  #footer27 small {
+    display: block;
+    margin-top: 4px;
+    font-size: 11.5px;
+    opacity: 0.75;
+  }
+
+  @media (max-width:420px){
+    #footer27{ font-size:12.5px; padding:12px; }
+  }
+</style>
+
+<div id="footer27">
+  <span>Tommy-Web Apps</span> v0.27
+  <small>Design ©2025 by Tommy</small>
+</div>
