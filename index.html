@@ -148,6 +148,14 @@
         <span class="toolbox-sub">Editor catatan sederhana</span>
       </div>
     </button>
+    
+   <button class="toolbox-button" onclick="toolboxGo('catatan1')">
+      <i class="fa-solid fa-book-open toolbox-blue"></i>
+      <div>
+        <span class="toolbox-text">Generator gambar asc</span>
+        <span class="toolbox-sub">Editor gambar sederhana</span>
+      </div>
+    </button>
   </div>
 </div>
 
@@ -162,7 +170,8 @@ function toolboxGo(page){
    font2: 'https://tommydev27.github.io/tm-textGz',
     glitch: 'https://tommydev27.github.io/glitch-text/',
     chars: 'https://tommydev27.github.io/unicode-explorerTM/',
-    catatan: 'https://tommydev27.github.io/Blok-dua-catatan-koreksi-catatan-/'
+    catatan: 'https://tommydev27.github.io/Blok-dua-catatan-koreksi-catatan-/',
+    catatan1: 'https://tommydev27.github.io/Tm-generator-texs/'
   }[page];
   if (url) location.href = url;
 }
