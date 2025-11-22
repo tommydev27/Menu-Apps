@@ -3,6 +3,7 @@
   <title>Tommy web-Apps</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Questrial&display=swap">
 </head>
 
 <style>
@@ -23,7 +24,7 @@ html, body {
   position: fixed;
   top: 12px;
   right: 16px;
-  font-size: 26px;
+  font-size: 20px;
   cursor: pointer;
   z-index: 9999;
   color: #333; /* warna normal */
@@ -116,6 +117,16 @@ html, body {
     font-weight: 600;
   }
 
+  #tro1 {
+    font-size: 14px;
+    font-family: Questrial;
+    font-weight: 0;
+    color:#555;
+    font-weight: 900;
+    margin-bottom: 10px;
+    line-height: 1.50;
+  }
+
   #toolbox-options {
     margin-top: 12px;
     display: grid;
@@ -191,7 +202,7 @@ html, body {
 
 <!-- PANEL -->
 <div id="sidepanel">
-  <img id="panel-photo" src="https://i.postimg.cc/Px4rMRFg/IMG-20240723-131053.jpg">
+  <img id="panel-photo" src="https://i.postimg.cc/zXqyGjZb/20251122-180931.jpg">
 
   <div id="panel-title">Tommy Web-Apps</div>
   <div id="panel-sub">Dibuat oleh Tommy Adhelyno</div>
@@ -219,19 +230,34 @@ html, body {
 <!-- TOOLBOX -->
 <div id="toolbox-container">
   <div id="toolbox-header">
-    <div id="toolbox-icon" style="font-size: 27px; font-weight:bold;">Menu <i class="fas fa-file-invoice" style="font-size:20px;"></i></div>
+    <div id="toolbox-icon" style="font-size: 20px; font-weight:bold;">Menu <i class="fas fa-file-invoice" style="font-size:15px;"></i></div>
     <div id="toolbox-divider"></div>
   </div>
 
+  <div id="tro1">Unicrate adalah aplikasi antarmuka yang dapat digunakan tanpa instalasi dan tanpa login. Alat ini memiliki banyak fungsi untuk membuat kreativitas unik seperti gambar foto profil dan sampul, keyboard penyusun simbol dan karakter untuk nama unik, penghitung karakter, serta kumpulan simbol. Navigasi utama dapat dipilih melalui ikon di barisan bawah.</div>
   <div id="toolbox-intro">Alat tambahan</div>
-
   <div id="toolbox-options">
 
     <button class="toolbox-button" onclick="toolboxGo('idcard')">
       <i class="far fa-id-card toolbox-blue"></i>
       <div><span class="toolbox-text">iD card pw</span><span class="toolbox-sub">Generator kartu identitas palsu</span></div>
     </button>
-
+    <button class="toolbox-button" onclick="toolboxGo('catatan1')">
+      <i class="fas fa-border-style toolbox-blue"></i>
+      <div><span class="toolbox-text">Generator ASC</span><span class="toolbox-sub">Editor gambar ASC</span></div>
+    </button>
+    <button class="toolbox-button" onclick="toolboxGo('seni')">
+      <i class="fa-brands fa-slack toolbox-blue"></i>
+      <div><span class="toolbox-text">Seni Teks</span><span class="toolbox-sub">ASCII art</span></div>
+    </button>
+    <button class="toolbox-button" onclick="toolboxGo('catatan')">
+      <i class="fa-solid fa-book-open toolbox-blue"></i>
+      <div><span class="toolbox-text">Blok Dua Catatan</span><span class="toolbox-sub">Editor catatan</span></div>
+    </button>
+    <button class="toolbox-button" onclick="toolboxGo('chars')">
+      <i class="fa-solid fa-font toolbox-blue"></i>
+      <div><span class="toolbox-text">Unicode Explorer</span><span class="toolbox-sub">Karakter global</span></div>
+    </button>
     <button class="toolbox-button" onclick="toolboxGo('font')">
       <i class="fa-brands fa-facebook toolbox-blue"></i>
       <div><span class="toolbox-text">Font nama Unik fb</span><span class="toolbox-sub">Nama keren FB</span></div>
@@ -246,30 +272,9 @@ html, body {
       <i class="fas fa-image toolbox-blue"></i>
       <div><span class="toolbox-text">Font Seni Gambar</span><span class="toolbox-sub">Buat gambar kreatif</span></div>
     </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('seni')">
-      <i class="fa-brands fa-slack toolbox-blue"></i>
-      <div><span class="toolbox-text">Seni Teks</span><span class="toolbox-sub">ASCII art</span></div>
-    </button>
-
     <button class="toolbox-button" onclick="toolboxGo('glitch')">
       <i class="fas fa-barcode toolbox-blue"></i>
       <div><span class="toolbox-text">Glitch Text</span><span class="toolbox-sub">Efek glitch</span></div>
-    </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('chars')">
-      <i class="fa-solid fa-font toolbox-blue"></i>
-      <div><span class="toolbox-text">Unicode Explorer</span><span class="toolbox-sub">Karakter global</span></div>
-    </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('catatan')">
-      <i class="fa-solid fa-book-open toolbox-blue"></i>
-      <div><span class="toolbox-text">Blok Dua Catatan</span><span class="toolbox-sub">Editor catatan</span></div>
-    </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('catatan1')">
-      <i class="fas fa-border-style toolbox-blue"></i>
-      <div><span class="toolbox-text">Generator ASC</span><span class="toolbox-sub">Editor gambar ASC</span></div>
     </button>
 
   </div>
