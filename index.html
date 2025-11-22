@@ -3,11 +3,93 @@
   <title>Tommy web-Apps</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
 </head>
 
 <style>
-  /* SCOPED STYLE KHUSUS TOOLBOX */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+#hamburger {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 9999;
+  color: #333; /* warna normal */
+}
+
+/* jika ada state active, paksa tetap sama */
+#hamburger.active,
+#hamburger:active,
+#hamburger:focus {
+  color: #03ed2c !important;
+}
+
+
+  /* PANEL */
+  #sidepanel {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100%;
+    background: #111827;
+    color: #e5e7eb;
+    box-shadow: -3px 0 12px rgba(0,0,0,0.4);
+    padding: 20px;
+    transition: .25s ease;
+    z-index: 9998;
+    font-family: system-ui;
+    overflow-y: auto;
+    border-left: 1px solid rgba(255,255,255,0.07);
+  }
+
+  #sidepanel.open { right: 0; }
+
+  #panel-photo {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3b82f6;
+    margin-bottom: 12px;
+  }
+
+  #panel-title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  #panel-sub {
+    font-size: 14px;
+    opacity: .8;
+    margin-bottom: 16px;
+  }
+
+  .panel-section {
+    margin-top: 16px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .panel-section div {
+    font-size: 14px;
+    margin-bottom: 6px;
+    opacity: .85;
+  }
+
+  /* TOOLBOX */
   #toolbox-container {
     padding: 10px;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
@@ -63,137 +145,31 @@
     box-shadow: 0 6px 18px rgba(2,6,23,0.45);
   }
 
-.toolbox-button i {
-  width: 32px; 
-  text-align: center;
-  font-size: 24px;
-  opacity: .95;
-}
+  .toolbox-button i {
+    width: 32px;
+    text-align: center;
+    font-size: 24px;
+    opacity: .95;
+  }
 
-  .toolbox-text { font-weight: 700; }
-  .toolbox-sub { display:block; font-weight:500; font-size:12px; opacity:.85; margin-top:2px; }
-  .toolbox-blue  { color: #7293f6; }
-</style>
+  .toolbox-text { font-weight: 700; color: #333;}
+  .toolbox-sub { display:block; font-weight:500; font-size:12px; opacity:.85; margin-top:2px; color: #444;}
+  .toolbox-blue  { color: #6e90f7; }
 
-<div id="toolbox-container">
-  <div id="toolbox-header">
-    <div id="toolbox-icon" style="font-size: 27px; font-weight:bold;">Menu <i class="fas fa-file-invoice" style="font-size:20px;"></i></div>
-    <div id="toolbox-divider"></div>
-  </div>
-
-  <div id="toolbox-intro">
-    Alat tambahan 
-  </div>
-
-  <div id="toolbox-options">
-    <button class="toolbox-button" onclick="toolboxGo('idcard')">
-      <i class="far fa-id-card toolbox-blue"></i>
-      <div>
-        <span class="toolbox-text">iD card pw</span>
-        <span class="toolbox-sub">Generator kartu identitas palsu (demo)</span>
-      </div>
-    </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('font')">
-      <i class="fa-brands fa-facebook toolbox-blue"></i>
-      <div>
-        <span class="toolbox-text">Font nama Unik fb</span>
-        <span class="toolbox-sub">Buat nama keren untuk profil</span>
-      </div>
-    </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('font2')">
-      <i class="fa fa-foursquare toolbox-blue"></i>
-      <div>
-        <span class="toolbox-text">Font Seni Generator </span>
-        <span class="toolbox-sub">Buat nama keren kreatif</span>
-      </div>
-    </button>
-    <button class="toolbox-button" onclick="toolboxGo('font3')">
-      <i class="fas fa-image toolbox-blue"></i>
-      <div>
-        <span class="toolbox-text">Font Seni Generator Gambar</span>
-        <span class="toolbox-sub">Buat Gambar keren kreatif</span>
-      </div>
-    </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('seni')">
-      <i class="fa-brands fa-slack toolbox-blue"></i>
-      <div>
-        <span class="toolbox-text">Seni Teks</span>
-        <span class="toolbox-sub">ASCII art & text-art</span>
-      </div>
-    </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('glitch')">
-      <i class="fas fa-barcode spotify toolbox-blue"></i>
-      <div>
-        <span class="toolbox-text">Glitch Text Generator</span>
-        <span class="toolbox-sub">Efek glitch ke teks</span>
-      </div>
-    </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('chars')">
-      <i class="fa-solid fa-font toolbox-blue"></i>
-      <div>
-        <span class="toolbox-text">Global Unicode Explorer</span>
-        <span class="toolbox-sub">Simbol & karakter khusus</span>
-      </div>
-    </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('catatan')">
-      <i class="fa-solid fa-book-open toolbox-blue"></i>
-      <div>
-        <span class="toolbox-text">Blok koreksi Dua catatan</span>
-        <span class="toolbox-sub">Editor catatan sederhana</span>
-      </div>
-    </button>
-    
-   <button class="toolbox-button" onclick="toolboxGo('catatan1')">
-      <i class="fa-solid fa-book-open toolbox-blue"></i>
-      <div>
-        <span class="toolbox-text">Generator gambar asc</span>
-        <span class="toolbox-sub">Editor gambar sederhana</span>
-      </div>
-    </button>
-  </div>
-</div>
-
-<script>
-function toolboxGo(page){
-  const url = {
-    idcard: 'https://tommydev27.github.io/FakeID/',
-    seni: 'https://tommydev27.github.io/generatorascii/',
-    hitung: 'https://tommydev27.github.io/Penghutung-karakter/',
-    font: 'https://tommydev27.github.io/font-unikrsfb/',
-   font3: 'https://tommydev27.github.io/tommy.website3/',
-   font2: 'https://tommydev27.github.io/tm-textGz',
-    glitch: 'https://tommydev27.github.io/glitch-text/',
-    chars: 'https://tommydev27.github.io/unicode-explorerTM/',
-    catatan: 'https://tommydev27.github.io/Blok-dua-catatan-koreksi-catatan-/',
-    catatan1: 'https://tommydev27.github.io/Tm-generator-texs/'
-  }[page];
-  if (url) location.href = url;
-}
-</script>
-<style>
-  /* FOOTER KHUSUS TOOLBOX v0.27 */
+  /* FOOTER */
   #footer27 {
     margin-top: 24px;
     padding: 16px;
     text-align: center;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: linear-gradient(90deg, #0f172a 0%, #111827 100%);
-    color: #aab3d0;
+    font-family: system-ui;
+    background:  #7a7a7a;
+    color: #fff;
     font-size: 13.5px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    border-radius: 0 0 14px 14px;
-    box-shadow: 0 -3px 10px rgba(0,0,0,0.3) inset;
     letter-spacing: 0.4px;
   }
 
   #footer27 span {
-    color: #38bdf8;
+    color: #54c2f1;
     font-weight: 600;
   }
 
@@ -208,6 +184,126 @@ function toolboxGo(page){
     #footer27{ font-size:12.5px; padding:12px; }
   }
 </style>
+
+
+<!-- HAMBURGER -->
+<div id="hamburger"><i class="fa fa-bars"></i></div>
+
+<!-- PANEL -->
+<div id="sidepanel">
+  <img id="panel-photo" src="https://i.postimg.cc/Px4rMRFg/IMG-20240723-131053.jpg">
+
+  <div id="panel-title">Tommy Web-Apps</div>
+  <div id="panel-sub">Dibuat oleh Tommy Adhelyno</div>
+
+  <div class="panel-section">
+    <div><b>Versi:</b> v0.27</div>
+    <div><b>Rilis:</b> 2025</div>
+  </div>
+
+  <div class="panel-section">
+    <div><b>Alat tersedia:</b></div>
+    <div>• Fake iD Card</div>
+    <div>• Font FB</div>
+    <div>• Font Seni</div>
+    <div>• Font Gambar</div>
+    <div>• Unicode Explorer</div>
+    <div>• Catatan</div>
+    <div>• ASCII Art</div>
+    <div>• Glitch Text</div>
+  </div>
+</div>
+
+
+
+<!-- TOOLBOX -->
+<div id="toolbox-container">
+  <div id="toolbox-header">
+    <div id="toolbox-icon" style="font-size: 27px; font-weight:bold;">Menu <i class="fas fa-file-invoice" style="font-size:20px;"></i></div>
+    <div id="toolbox-divider"></div>
+  </div>
+
+  <div id="toolbox-intro">Alat tambahan</div>
+
+  <div id="toolbox-options">
+
+    <button class="toolbox-button" onclick="toolboxGo('idcard')">
+      <i class="far fa-id-card toolbox-blue"></i>
+      <div><span class="toolbox-text">iD card pw</span><span class="toolbox-sub">Generator kartu identitas palsu</span></div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('font')">
+      <i class="fa-brands fa-facebook toolbox-blue"></i>
+      <div><span class="toolbox-text">Font nama Unik fb</span><span class="toolbox-sub">Nama keren FB</span></div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('font2')">
+      <i class="fa fa-foursquare toolbox-blue"></i>
+      <div><span class="toolbox-text">Font Seni Generator</span><span class="toolbox-sub">Nama keren kreatif</span></div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('font3')">
+      <i class="fas fa-image toolbox-blue"></i>
+      <div><span class="toolbox-text">Font Seni Gambar</span><span class="toolbox-sub">Buat gambar kreatif</span></div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('seni')">
+      <i class="fa-brands fa-slack toolbox-blue"></i>
+      <div><span class="toolbox-text">Seni Teks</span><span class="toolbox-sub">ASCII art</span></div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('glitch')">
+      <i class="fas fa-barcode toolbox-blue"></i>
+      <div><span class="toolbox-text">Glitch Text</span><span class="toolbox-sub">Efek glitch</span></div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('chars')">
+      <i class="fa-solid fa-font toolbox-blue"></i>
+      <div><span class="toolbox-text">Unicode Explorer</span><span class="toolbox-sub">Karakter global</span></div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('catatan')">
+      <i class="fa-solid fa-book-open toolbox-blue"></i>
+      <div><span class="toolbox-text">Blok Dua Catatan</span><span class="toolbox-sub">Editor catatan</span></div>
+    </button>
+
+    <button class="toolbox-button" onclick="toolboxGo('catatan1')">
+      <i class="fas fa-border-style toolbox-blue"></i>
+      <div><span class="toolbox-text">Generator ASC</span><span class="toolbox-sub">Editor gambar ASC</span></div>
+    </button>
+
+  </div>
+</div>
+
+<script>
+function toolboxGo(page){
+  const url = {
+    idcard: 'https://tommydev27.github.io/FakeID/',
+    seni: 'https://tommydev27.github.io/generatorascii/',
+    hitung: 'https://tommydev27.github.io/Penghutung-karakter/',
+    font: 'https://tommydev27.github.io/font-unikrsfb/',
+    font3: 'https://tommydev27.github.io/tommy.website3/',
+    font2: 'https://tommydev27.github.io/tm-textGz',
+    glitch: 'https://tommydev27.github.io/glitch-text/',
+    chars: 'https://tommydev27.github.io/unicode-explorerTM/',
+    catatan: 'https://tommydev27.github.io/Blok-dua-catatan-koreksi-catatan-/',
+    catatan1: 'https://tommydev27.github.io/Tm-generator-texs/'
+  }[page];
+  if (url) location.href = url;
+}
+
+const ham = document.getElementById('hamburger');
+const panel = document.getElementById('sidepanel');
+
+ham.onclick = () => {
+  panel.classList.toggle('open');
+};
+
+document.getElementById('hamburger').addEventListener('click', function() {
+  this.classList.toggle('active');
+});
+
+</script>
 
 <div id="footer27">
   <span>Tommy-Web Apps</span> v0.27
