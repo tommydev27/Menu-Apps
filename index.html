@@ -1,143 +1,930 @@
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="utf-8">
-  <title>Tommy web-Apps</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="pwKvYalfLxSFwpDlCsan4yS_mEsUdJvUDrI2wKiIHXk" />
+    
+    <meta property="og:title" content="Tommy Website">
+    <meta property="og:description" content="Create stunning AI-generated images with ease using Tommy APP.">
+    <meta property="og:image" content="https://i.postimg.cc/wM14G6Fw/large-7-2.png">
+    <meta property="og:url" content="https://tommydev27.github.io/UnicodeTM/">
+    <meta property="og:type" content="website">
+    <meta property="fb:app_id" content="1245016886587008">
+    
+    <title>Tommy Website App</title>
+
+    <link rel="stylesheet" href="https://static.xx.fbcdn.net/rsrc.php/v5/y2/l/0,cross/nC2XYYUISfm.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.xx.fbcdn.net/rsrc.php/v5/y8/l/0,cross/Z39OoPuXzgz.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Questrial&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FK1EY26W82"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-FK1EY26W82');
+    </script>
 </head>
 
 <style>
-
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Questrial, sans-serif;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden !important;
+body {
+    background: #daebfa21;
+    color: #333;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#hamburger {
-  position: fixed;
-  top: 12px;
-  right: 16px;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 9999;
-  color: #333; /* warna normal */
-}
-
-/* jika ada state active, paksa tetap sama */
-#hamburger.active,
-#hamburger:active,
-#hamburger:focus {
-  color: #03ed2c !important;
-}
-
-
-  /* PANEL */
-  #sidepanel {
-    position: fixed;
+.container {
+    position: absolute;
     top: 0;
-    right: -260px;
-    width: 260px;
-    height: 100%;
-    background: #111827;
-    color: #e5e7eb;
-    box-shadow: -3px 0 12px rgba(0,0,0,0.4);
-    padding: 20px;
-    transition: .25s ease;
-    z-index: 9998;
-    font-family: system-ui;
-    overflow-y: auto;
-    border-left: 1px solid rgba(255,255,255,0.07);
-  }
+    left: 0;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
 
-  #sidepanel.open { right: 0; }
+.profile-image-container {
+    margin-bottom: 0;
+}
 
-  #panel-photo {
-    width: 85px;
-    height: 85px;
+.profile-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-top: 0;
+  border-radius: 0;
+}
+
+
+.circle-image {
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #3b82f6;
-    margin-bottom: 12px;
-  }
+    position: absolute;
+    top: 44px;
+    left: 70px;
+    padding: 3px;
+    outline: 4px solid #fff;
+    transform: translateX(-50%);
+    background-color: white;
+}
 
-  #panel-title {
-    font-size: 18px;
-    font-weight: 700;
-  }
+body.dark-mode .circle-image {
+    border: 3px solid #41ff3c;
+    background-color: #333;
+    outline: 4px solid #262626;
+}
 
-  #panel-sub {
-    font-size: 14px;
-    opacity: .8;
-    margin-bottom: 16px;
-  }
+.unique-controls {
+    position: relative;
+    color:  #41ff3c;
+    padding: 15px;
+}
 
-  .panel-section {
-    margin-top: 16px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
+.song-info h2 {
+    font-size: 20px;
+    color: #333;
+    margin: 0 0 0 15px;
+    margin-top: 18px;
+    padding: 0;
+    line-height: 0.85;
+}
 
-  .panel-section div {
-    font-size: 14px;
-    margin-bottom: 6px;
-    opacity: .85;
-  }
+body.dark-mode .song-info h2 {
+    color: #41ff3c;
+}
 
-  /* TOOLBOX */
-  #toolbox-container {
+.fas.fa-check-circle {
+    font-size: 20px;
+    color: #1b74e4;
+    margin-left: 5px;
+    border-radius: 50%;
+}
+
+
+body.dark-mode {
+    background-image: url('https://iili.io/3BRBjF2.png');
+    color: #41ff3c;
+    background-attachment: fixed;
+}
+
+
+.settings-card {
+    display: none;
+}
+
+h2 {
+    font-size: 15px;
+    color: #333;
+    gap: 0;
+    margin-top: 10px;
+}
+
+#profil-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+#profil-header button {
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    padding: 8px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#profil-header button:hover {
+    background-color: #5ec7fb;
+}
+
+#scroll-buttons {
+    display: flex;
+    gap: 0;
     padding: 10px;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  }
+    width: 100%;
+    justify-content: space-between;
+}
 
-  #toolbox-header {
+#scroll-buttons button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.dark-mode #scroll-buttons i {
+    color: #ff0303;
+}
+
+#scroll-buttons i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: #444;
+    border-radius: 50px;
+    font-size: 16px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode #scroll-buttons span {
+    color: #0fff03;
+}
+
+body.dark-mode h2 {
+    color: #0fff03;
+}
+
+#profil-tabs {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #ddd;
+}
+
+#profil-tabs div {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+}
+
+#profil-tabs div.active {
+    border-bottom: 3px solid #1b74e4;
+    color: #1b74e4;
+}
+
+#profil-content {
+    padding: 15px;
+}
+
+#profil-content > div {
+    display: none;
+}
+
+#profil-content > div.active {
+    display: block;
+}
+
+#content-foto img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+p {
+    padding: 0;
+    color: #333;
+    margin: 5px 0;
+}
+
+.profile-container {
+    padding: 15px;
+}
+
+.header {
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-bottom: 12px;
-  }
+}
 
-  #toolbox-icon { font-size: 36px; opacity: .95; }
-  #toolbox-divider {
-    flex: 1;
-    height: 1px;
-    background: rgba(255,255,255,0.06);
-    margin-left: 6px;
-  }
+.profile-info h4 {
+    margin: 0;
+    font-size: 20px;
+    margin-top: -8px;
+    font-weight: bold;
+}
 
-  #toolbox-intro {
-    font-size: 18px;
-    line-height: 1.15;
-    font-weight: 600;
-  }
+.profile-info small {
+    color: #606770;
+}
 
-  #tro1 {
-    font-size: 14px;
-    font-family: Questrial;
-    font-weight: 0;
-    color:#555;
-    font-weight: 900;
-    margin-bottom: 10px;
-    line-height: 1.50;
-  }
+.content img {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+}
 
+.private-icon {
+    margin-left: 5px;
+    font-size: 12px;
+    color: #606770;
+}
+
+.bold {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #0682ff;
+  font-weight: bold;
+}
+
+body.dark-mode .bold {
+  color: #0dfa0a; 
+}
+
+.gray {
+    color: #334;
+    font-weight: normal;
+}
+      
+button {
+  border: none;
+  padding: 8px 12px;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+
+
+body.dark-mode .profile-picture {
+  background-color: #121212;
+  border-color: #41ff3c;
+  box-shadow: 1px 1px 1px #111, -1px -1px 1px #444;
+}
+
+.darkmode {
+  width: 26px;
+  height: 12px;
+  background-color: gray;
+  border-radius: 30px;
+  position: relative;
+  margin-top: 4px;
+  cursor: pointer;
+  border: 1px solid #eee;
+}
+
+.darkmode .toggle-circle {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  transition: left 0.3s ease, background-color 0.3s ease;
+}
+
+.darkmode {
+  position: absolute;
+  right: 17px;
+  top: 20px;
+}
+
+.darkmode.active {
+  background-color: #16181b;
+  border: 1px solid red;
+}
+
+.darkmode.active .toggle-circle {
+  background-color: #41ff3c;
+}
+
+@keyframes blink-colors {
+  0% { background-color: red; }
+  33% { background-color: blue; }
+  66% { background-color: white; }
+  100% { background-color: red; }
+}
+
+.darkmode.active .toggle-circle {
+  left: 15px;
+  background-color: #41ff3c;
+  animation: blink-colors 1.3s infinite;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #41ff3c;
+}
+
+body.dark-mode .header h1 {
+  color: #fff;
+}
+
+.darkmode-label {
+  font-size: 8px;
+  color: #333;
+  text-align: center;
+  margin-top: 12px;
+}
+
+body.dark-mode hr {
+  border: 0.10px solid #fff;
+}
+
+
+
+.icon-container:active::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 255, 0.6);
+  border-radius: 50%;
+  animation: ripple 0.3s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.icon-container i {
+  font-size: 16px;
+}
+
+.button-circle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #1b74e4 ;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.button-circle i {
+  font-size: 18px;
+}
+
+.icon-container.active .button-circle {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.button-circle:nth-child(2) {
+  transform: translate(-30px, 50px);
+}
+
+.button-circle:nth-child(3) {
+  transform: translate(-55px, -20px);
+}
+
+.button-circle:nth-child(4) {
+  transform: translate(-55px, 20px);
+}
+
+.button-circle:nth-child(5) {
+  transform: translate(10px, 55px);
+}
+
+.icon-container:not(.active) .button-circle {
+  transform: translate(0, 0);
+}
+
+.nav-buttons {
+  flex-direction: row;
+  justify-content: center;
+  padding: 0px;
+  margin-top: 0px;
+}
+
+.nav-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 0px;
+  margin-top: 8px;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  font-weight: bold;
+background:linear-gradient(180deg,#b72900,#571400);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.nav-button i {
+  font-size: 14px;
+  color: #d8d6dd;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button span {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 0px;
+  color: #fff;
+  padding: 6px 5px;
+  margin-top: 0px;
+  cursor: pointer;
+  width: auto;
+  background: none;
+  border-radius: 10px;
+  border: none;
+}
+
+body.dark-mode .nav-button span {
+  color: #0a0c0a;
+}
+
+.nav-button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.dark-mode .nav-button i {
+  color: #e00000;
+}
+
+.nav-button:hover i {
+  background-color: transparent;
+  border-radius: 50px;
+  color: #c10303;
+}
+
+.nav-button:active i {
+  background-color: transparent !important;
+  animation: blink 1.1s;
+}
+
+.nav-button i {
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.gallery {
+  list-style-type: none;
+  padding: 0;
+}
+
+.gallery-item {
+  margin-bottom: 10px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-item h3 {
+  margin: 4px 0;
+  font-size: 15px;
+}
+
+.gallery-item p {
+  font-size: 15px;
+  color: #eee;
+}
+
+.prompt-list {
+  font-size: 0.9em;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.prompt-list ul {
+  margin-top: 10px;
+}
+
+footer {
+  color: #eee;
+  padding: 0px 0;
+  margin-top: 0px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-container {
+  margin: 0 auto;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.quick-links a {
+  color: #777;
+  text-decoration: none;
+  margin: 0 5px;
+  font-size: 12px;
+}
+
+.quick-links a:hover {
+  color: #ff5722;
+}
+
+.social-media {
+  display: flex;
+  gap: 23px;
+}
+
+.social-icon {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 8px 12px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+  background-color: #ff5722;
+  border-color: #ff5722;
+}
+
+.facebook {
+  background-color: #3b5998;
+  border: none;
+}
+
+.twitter {
+  background-color: #1da1f2;
+  border: none;
+}
+
+.instagram {
+  background-color: #e4405f;
+  border: none;
+}
+
+.copyright {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+body.dark-mode h2 {
+  color: #41ff3c;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #41ff3c;
+}
+
+body.dark-mode #song-title {
+  color: #41ff3c !important;
+}
+
+body.dark-mode .song-info span:nth-child(2) {
+  color: #abb1bd !important;
+}
+
+body.dark-mode .song-info span:nth-child(3) {
+  color: #fd2d2d !important;
+}
+
+body.dark-mode .song-info span:nth-child(4) {
+  color: #1b74e4 !important;
+}
+
+body.dark-mode .song-info span:nth-child(5) i {
+  color: #f2e901 !important;
+}
+
+body.dark-mode #song-title+p {
+  color: #595963 !important;
+}
+
+body.dark-mode .fab.fa-optin-monster {
+  color: #f523e5 !important;
+}
+
+body.dark-mode .fab.fa-skyatlas {
+  color: #ecf814ed !important;
+}
+
+body.dark-mode .fab.fa-wolf-pack-battalion {
+  color: #f523e5 !important;
+}
+
+body.dark-mode .fas.fa-chess {
+  color: #2a90e8 !important;
+}
+
+body.dark-mode .fas.fa-chess-knight {
+  color: #abb1bd !important;
+}
+
+body.dark-mode #song-title+a {
+  color: #dfff19 !important;
+}
+
+body.dark-mode .fas.fa-dice {
+  color: #ba0404 !important;
+}
+
+
+.dark-mode p {
+  color: #34ff00;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+#b2 {
+  font-size: 13px;
+  margin-right: 5px;
+  width: 10px;
+  color: #444;
+  text-align: right;
+}
+
+#p2 {
+  font-size: 13px;
+  margin: 0;
+  flex: 1;
+}
+
+.native-text {
+  font-family: 'Segoe UI Symbol', 'Noto Emoji', sans-serif;
+}
+
+
+    body.dark-mode .follower {
+       border: 2px solid #41ff3c;
+      
+    }
+  
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        background-color: blue;
+        color: white;
+    }
+    33% {
+        background-color: red;
+        color: white;
+    }
+    66% {
+        background-color: white;
+        color: black;
+    }
+}
+
+
+    
+    </style>
+  <style>
+
+    .dark-mode .img-container {
+      background: transparent;
+      border: 1px solid #1097ff;
+      border-radius: 15px;
+      box-shadow: none;
+    }
+
+    .img-container:hover,
+    .img-container:active,
+    .img-container.clicked-blink {
+
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .clicked-blink {
+      animation: pulse 0.3s ease;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(0.90); }
+      100% { transform: scale(1); }
+    }
+    
+    #uniqueSaveBtn {
+      padding: 10px 20px;
+      background-color: green;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px auto;
+      display: block;
+    }
+
+  </style>
+<style>
+
+#image-scroll-container {
+  width: 100%;
+  padding: 5px 0px;
+  background: #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  border-radius: 15px;
+  display: flex;
+  scroll-behavior: smooth;
+}
+
+        .dark-mode  #image-scroll-container {
+            border: none;
+            background: none;
+        }
+
+#image-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-left: -4px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  outline: none;
+}
+
+.img-container {
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  cursor: pointer;
+}
+
+.book-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  width: 180px;
+  padding: 20px;
+  border: solid 1px #ccc;
+  border-radius: 15px;
+  height: 180px;
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: left;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+        .dark-mode  .book-badge {
+            border: none;
+            background: #333;
+            color: #0dfa0a;
+        }
+
+  .icon-badge {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     gap: 5px;
+     font-size: 40px;
+    }
+
+    .orange { color: #ffbc41; }
+    .green { color: #25D366; }
+    .blue { color: #1DA1F2; }
+    .pink { color: #E1306C; }
+    .light-blue { color: #4285F4; }
+    .grey { color: #444; }
+    .spotify { color: #1DB954; }
+    
+    .text-wrap {
+      display: inline-block;
+      border-radius: 15px;
+      margin-top: 0px;
+      line-height: 2.9em;
+      font-weight: bold;
+      word-break: break-word;
+      white-space: normal;
+    }
+    
+      .tommyweb {
+        display: flex; align-items: center; background: #fff; padding : 10px 0px;}
+        .dark-mode .tommyweb {
+            background: #333;
+            color: #04f105;
+          }
   #toolbox-options {
     margin-top: 12px;
     display: grid;
     gap: 8px;
+    width: 100%;
   }
 
   .toolbox-button {
     display: flex;
     align-items: center;
     gap: 12px;
-    width: 100%;
     padding: 10px 14px;
     border-radius: 10px;
     border: 0;
@@ -166,79 +953,64 @@ html, body {
   .toolbox-text { font-weight: 700; color: #333;}
   .toolbox-sub { display:block; font-weight:500; font-size:12px; opacity:.85; margin-top:2px; color: #444;}
   .toolbox-blue  { color: #6e90f7; }
-
-  /* FOOTER */
-  #footer27 {
-    margin-top: 24px;
-    padding: 16px;
-    text-align: center;
-    font-family: system-ui;
-    background:  #7a7a7a;
-    color: #fff;
-    font-size: 13.5px;
-    letter-spacing: 0.4px;
+      </style>
+  </head>
+<body>
+  
+<div class="container">
+       <div class="unique-controls">
+    <a class="bold">
+        Multi Tools Text • ID & Gambar
+</a>
+<style>
+  .container1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
-  #footer27 span {
-    color: #54c2f1;
-    font-weight: 600;
+  .big-text1 {
+    font-size: 20px;
+  color: #5fa8ff;
+  margin-top: -710px;
+
   }
 
-  #footer27 small {
-    display: block;
-    margin-top: 4px;
-    font-size: 11.5px;
-    opacity: 0.75;
+.dark-mode .big-text1 {
+  color: #45ea08;
+}
+  .dark-mode .toolbox-text {
+  color: #45ea08;
+}
+    .dark-mode .toolbox-sub {
+  color: #08d7ea;
+}
+    
+  .divider1 {
+    width: 0.5px;
+    background: #5fa8ff;
+    height: 750px;
+    margin-top: 10px;
   }
 
-  @media (max-width:420px){
-    #footer27{ font-size:12.5px; padding:12px; }
+  .small-text1 {
+    font-size: 15px;
+    color: #333;
+  }
+  
+    .dark-mode .small-text1 {
+    color: #4ff84f;
   }
 </style>
-
-
-<!-- HAMBURGER -->
-<div id="hamburger"><i class="fa fa-bars"></i></div>
-
-<!-- PANEL -->
-<div id="sidepanel">
-  <img id="panel-photo" src="https://i.postimg.cc/zXqyGjZb/20251122-180931.jpg">
-
-  <div id="panel-title">TM Unicreat Apps</div>
-  <div id="panel-sub">Dibuat oleh Tommy Adhelyno</div>
-
-  <div class="panel-section">
-    <div><b>Versi:</b> v0.27</div>
-    <div><b>Rilis:</b> 2025</div>
-  </div>
-
-  <div class="panel-section">
-    <div><b>Alat tersedia:</b></div>
-    <div>• Fake iD Card</div>
-    <div>• Sim Card</div>
-    <div>• Font FB</div>
-    <div>• Font Seni</div>
-    <div>• Font Gambar</div>
-    <div>• Unicode Explorer</div>
-    <div>• Catatan</div>
-    <div>• ASCII Art</div>
-    <div>• Glitch Text</div>
-  </div>
-</div>
-
-
-
-<!-- TOOLBOX -->
-<div id="toolbox-container">
-  <div id="toolbox-header">
-    <div id="toolbox-icon" style="font-size: 20px; font-weight:bold;">Menu <i class="fas fa-file-invoice" style="font-size:15px;"></i></div>
-    <div id="toolbox-divider"></div>
-  </div>
-
-  <div id="tro1">Unicrate adalah aplikasi antarmuka yang dapat digunakan tanpa instalasi dan tanpa login. Alat ini memiliki banyak fungsi untuk membuat kreativitas unik seperti <span style="color: rgb(4,87,245);">gambar foto profil dan sampul, keyboard penyusun simbol dan karakter untuk nama unik, penghitung karakter, serta kumpulan simbol.</span> Navigasi utama dapat dipilih melalui ikon di barisan bawah.</div>
-  <div id="toolbox-intro">Alat tambahan</div>
+    <a class="bold"> 
+<div class="container1">
+  <div class="big-text1"><i class="fab fa-earlybirds"></i></div>
+  <div class="divider1"></div>
+  <div class="small-text1">
+   Alat Karakter Teks - Seni Teks &
+    Buat gambar Ai & Ascii</br>
+    
   <div id="toolbox-options">
-
 <button class="toolbox-button" onclick="toolboxGo('idcard')">
     <img 
       src="https://static.xx.fbcdn.net/rsrc.php/v4/yj/r/tR3tk_R_CQF.png?_nc_eh=2%2C79e96e74d7c9caa5b811c8ba4d3f541c%2CAUdGcWwwrcc_s7Dn-ejPoLsLheL8rA60L_etXKX651qJsdkKc_dIgHj0FGIMpyuiPwM"
@@ -255,6 +1027,14 @@ html, body {
       <div>
     <span class="toolbox-text">SIM CARD</span>
     <span class="toolbox-sub">Generator kartu sim</span>
+  </div>
+</button>
+
+<button class="toolbox-button" onclick="toolboxGo('idcard2')">
+      <i class="fas fa-keyboard style toolbox-blue" style="color:#3e94f9;"></i>
+      <div>
+    <span class="toolbox-text">Multy Keyboard</span>
+    <span class="toolbox-sub">Keyboard Karakter Lengkap</span>
   </div>
 </button>
 
@@ -280,7 +1060,7 @@ html, body {
     </button>
 
     <button class="toolbox-button" onclick="toolboxGo('font2')">
-      <i class="fa fa-foursquare " style="color:#ffb451;"></i>
+      <i class="fab fa-foursquare" style="color:#ffb451;"></i>
       <div><span class="toolbox-text">Font Seni Generator</span><span class="toolbox-sub">Nama keren kreatif</span></div>
     </button>
 
@@ -293,14 +1073,13 @@ html, body {
       <div><span class="toolbox-text">Glitch Text</span><span class="toolbox-sub">Efek glitch</span></div>
     </button>
 
-  </div>
-</div>
 
 <script>
 function toolboxGo(page){
   const url = {
     idcard: 'https://tommydev27.github.io/FakeID/',
     idcard1: 'https://tommydev27.github.io/Sim-card-pw/',
+    idcard2: 'https://tommydev27.github.io/Multi-Keyboartm/',
     seni: 'https://tommydev27.github.io/generatorascii/',
     hitung: 'https://tommydev27.github.io/Penghutung-karakter/',
     font: 'https://tommydev27.github.io/font-unikrsfb/',
@@ -327,7 +1106,476 @@ document.getElementById('hamburger').addEventListener('click', function() {
 
 </script>
 
-<div id="footer27">
-  <span>Tommy-Web Apps</span> v0.27
-  <small>Design ©2025 by Tommy</small>
+  </div>
+      </div>
+    </div>
+  </div>
+    
+
+<div id="container">
+  <div class="unique-controls">
+    <div id="image-scroll-container">
+      <div id="image-wrapper">
+
+        <div class="img-container">
+          <a href="https://tommydev27.github.io/font-unikrsfb/" class="book-badge">
+            <b class="icon-badge"><i class="fab fa-facebook blue"></i></b>
+            <span class="text-wrap">Font Nama fb Unik</span><small>Seni teks rangkaian font </small>
+          </a>
+        </div>
+
+        <div class="img-container">
+          <a href="https://tommydev27.github.io/FakeID/" class="book-badge">
+            <b class="icon-badge"><i class="fas fa-address-card pink"></i></b>
+            <span class="text-wrap">Id card pw</span><small>Pembuat iD indentity</small>
+          </a>
+        </div>
+
+        <div class="img-container">
+          <a href="https://tommydev27.github.io/Unicode.SymbolTool/" class="book-badge">
+            <b class="icon-badge"><i class="fas fa-keyboard light-blue"></i></b>
+            <span class="text-wrap">Keyboard</span><small>Share Your Moment</small>
+          </a>
+        </div>
+
+        <div class="img-container">
+          <a href="https://tommydev27.github.io/Unicode/" class="book-badge">
+            <b class="icon-badge"><i class="fab fa-page4 pink"></i></b>
+            <span class="text-wrap">Unicode Characters</span>
+          <small>Kumpulan teks symbol</small></a>
+        </div>
+
+        <div class="img-container">
+          <a href="https://tommydev27.github.io/Penghutung-karakter/" class="book-badge">
+            <b class="icon-badge"><i class="fa fa-calculator blue"></i></b>
+            <span class="text-wrap">Penghitung Karakter</span><small>jumlah teks / symbols</small>
+          </a>
+        </div>
+
+        <div class="img-container">
+          <a href="https://tommydev27.github.io/glitch-text/" class="book-badge">
+            <b class="icon-badge"><i class="fas fa-barcode spotify"></i></b>
+            <span class="text-wrap">Glitch teks</span><small>efek garis teks</small>
+          </a>
+        </div>
+
+        <div class="img-container">
+          <a href="https://tommydev27.github.io/tommy.website3/" class="book-badge">
+            <b class="icon-badge"><i class="fas fa-braille orange"></i></b>
+            <span class="text-wrap">Image generator </span><small>gambar teks ascii</small>
+          </a>
+        </div>
+
+        <div class="img-container">
+          <a href="https://tommydev27.github.io/tm-textGz/" class="book-badge">
+            <b class="icon-badge"><i class="fab fa-amazon spotify"></i></b>
+            <span class="text-wrap">Font teks nama fb</span><small>Rangkaian teks </small>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+<script>
+  function shareContent() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Cek Halaman Ini!',
+        text: 'Lihat website keren ini.',
+        url: window.location.href, // atau URL lain
+      })
+      .then(() => console.log('Berhasil dibagikan'))
+      .catch((error) => console.log('Gagal membagikan', error));
+    } else {
+      alert('Fitur berbagi tidak didukung di perangkat ini.');
+    }
+  }
+</script>
 </div>
+      </div>
+          <div class="darkmode" id="darkModeToggle"><div class="toggle-circle"></div>
+              <p class="darkmode-label">mode</p>
+              </div>
+              
+
+   <div class="unique-controls">
+      <h2>Keterangan
+
+   <p style="font-size:14px; font-family:normal; font-weight: 500;">Unicrate adalah aplikasi antarmuka yang dapat digunakan tanpa instalasi dan tanpa login. Alat ini memiliki banyak fungsi untuk membuat kreativitas unik seperti <span style="color: rgb(4,87,245);">gambar foto profil dan sampul, keyboard penyusun simbol dan karakter untuk nama unik, penghitung karakter, serta kumpulan simbol.</span> Navigasi utama dapat dipilih melalui ikon di barisan bawah.</p>
+     </div>
+          <div class="unique-controls" style="margin-top: -14px;">
+        <img src="https://i.postimg.cc/BQ2wW4dt/3IeW1x2.png" style="width: 100%; height: auto; 
+           border-radius: 12px; border: solid 2px #777; pointer-events: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan tombol */
+          }
+          
+          button:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Efek bayangan saat hover */ ">
+        <button id="generate"
+          onclick="location.href='https://tommydev27.github.io/tommy.website-demo/';"
+          style="color: #fff; border: none; border-radius: 8px; font-size: 15px; padding: 8px; cursor: pointer; font-weight: bold; -webkit-tap-highlight-color: transparent; outline: none; background: #26a9a3; margin-top: 12px;">
+          Info Website
+          <i style="margin-left: 5px; font-size: 15px; color: #35ebfff9;" class="fas fa-exclamation-circle"></i>
+        </button>
+        </div>
+
+
+      <div id="profil-header">
+                
+        </div>
+          <hr style="background-color: #ccc; height: 1px; border: none; margin: 0; width: 100%; display: flex; "></hr>
+      <style>
+        #scroll-buttons span {
+          color: #eee;
+          margin-left: 0px;
+          font-size: 8px;
+        }
+        #scroll-buttons button {
+          margin: 0px;
+          padding: 10px;
+      
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+      </style>
+      
+        <div class="unique-controls"><h2 style="font-size: 17px; margin-top: 20px; padding: 0px;">INFO</h2><p style="font-size: 14px; font-weight:500; font-family: normal;">website ini masih dalam tahap pengembangan dan mungkin belum berfungsi secara normal. Beberapa fitur mungkin tidak konsisten atau mengalami gangguan. Kami sedang bekerja untuk meningkatkan pengalaman Anda. Terimakasih atas pengertiannya!</p>
+        <br>
+          <img src="https://i.postimg.cc/7Z6xNq8p/3zsxf-St-md.png" style="width: 100%; border: none;  border: solid 2px #777; border-radius: 8px; pointer-events: none; margin-bottom: px; border: 1px solid #eee;"></img>
+      <div><footer><div class="footer-container"><div class="quick-links"><a>Home<a>Features<a>Privacy Policy<a>Terms & Conditions</a></div><div class="social-media"><a href="https://www.facebook.com" target="_blank" class="social-icon facebook">Facebook</a><a href="https://twitter.com" target="_blank" class="social-icon twitter">Twitter</a><a href="https://instagram.com" target="_blank" class="social-icon instagram">Instagram</a>
+      </div>
+<a href="#" title="Versi Aplikasi Tommy" style="text-decoration:none;">
+  <img 
+    src="https://img.shields.io/badge/Design_•_Tommy_App-v0.1.0_2022-blue?style=flat-square" 
+    alt="Tommy App Version"
+    style="border-radius: 4px;"
+  >
+</a>
+
+
+</footer></div><script>function showTab(tab) { const tabs = document.querySelectorAll("#profil-tabs div"); const contents = document.querySelectorAll("#profil-content> div"); tabs.forEach(t => t.classList.remove("active")); contents.forEach(c => c.classList.remove("active")); document.querySelector(`#tab-${tab}`).classList.add("active"); document.querySelector(`#content-${tab}`).classList.add("active"); }</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Menangani Tab
+    function showTab(tab) {
+        const tabs = document.querySelectorAll("#profil-tabs div");
+        const contents = document.querySelectorAll("#profil-content > div");
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+        document.querySelector(`#tab-${tab}`).classList.add("active");
+        document.querySelector(`#content-${tab}`).classList.add("active");
+    }
+
+    // Redirect URL
+    function redirect(url) {
+        window.location.href = url;
+    }
+
+    // Arahkan ke Halaman Berikutnya (Alert)
+    function nextPage() {
+        alert("Akan dialihkan ke halaman selanjutnya!");
+    }
+
+    // Tombol Scroll dan Redirect
+    document.querySelectorAll("#scroll-buttons button").forEach(button => {
+        button.addEventListener("click", function () {
+            const url = this.getAttribute("onclick").match(/'(.*?)'/)[1];
+            redirect(url);
+        });
+    });
+
+    // Mode Gelap (Dark Mode) Toggle
+    const toggle = document.getElementById("darkModeToggle");
+    toggle.addEventListener("click", function () {
+        this.classList.toggle("active");
+        document.body.classList.toggle("dark-mode");
+    });
+
+});
+</script>
+<script>document.getElementById("iconuniquecontainer").addEventListener("click", function () { this.classList.toggle("active"); });</script>
+        
+<script>
+  let isIframeOpen = false;
+  let currentOpenIframe = null;
+
+  // Pemetaan URL sesuai nama iframe
+  function getUrlForTab(name) {
+    const urls = {
+      
+       'Microsoft2222': 'https://tommydev27.github.io/Blok-dua-catatan-koreksi-catatan-/',
+      'Microsoft222': 'https://tommydev27.github.io/generatorascii/',
+      'Microsoft22': 'https://tommydev27.github.io/Penghapus-duplikat-teks/',
+      'Microsoft14': 'https://image-generation.perchance.org',
+      'Microsoft4': 'https://tommydev27.github.io/Alat-Penghapus-Spasi/',
+      'Microsoft3': 'https://tommydev27.github.io/Pengganda-teks/',
+      'Microsoft2': 'https://tommydev27.github.io/Penghutung-karakter/',
+      'Microsoft': 'https://tommydev27.github.io/FakeID/',
+      'Unicode': 'https://tommydev27.github.io/Unicode.SymbolTool/',
+      'Glitch': 'https://tommydev27.github.io/glitch-text/',
+      'Glitch2': 'https://tommydev27.github.io/Unicode/',
+      'FontUnikers': 'https://tommydev27.github.io/font-unikrsfb/',
+      'DeepAi': 'https://tommydev27.github.io/tommy-website.oi/',
+      'Replit AI': 'https://tommydev27.github.io/tommy.website3/',
+      'DeepSeek': 'https://tommydev27.github.io/tommy.website-demo/',
+      'Music': 'https://tommydev27.github.io/MusicTM/',
+      'Music2': 'https://tommydev27.github.io/glitch-text/'
+    };
+    return urls[name] || '';
+  }
+
+  // Fungsi toggle iframe berdasarkan klik gambar
+  document.querySelectorAll('img.image').forEach(img => {
+    img.addEventListener('click', () => {
+      const targetId = img.getAttribute('data-target');
+      const iframe = document.getElementById(targetId);
+      if (!iframe) return;
+
+      const currentUrl = getUrlForTab(targetId);
+
+      if (iframe.style.display === 'block' && iframe.src === currentUrl) {
+        // Tutup iframe jika sudah terbuka dan url sama
+        iframe.style.display = 'none';
+        isIframeOpen = false;
+        currentOpenIframe = null;
+        history.pushState(null, null, location.href);
+        return;
+      }
+
+      // Tutup semua iframe lain
+      document.querySelectorAll('iframe.imageContainer').forEach(fr => {
+        fr.style.display = 'none';
+      });
+
+      // Set src jika belum sesuai
+      if (iframe.src !== currentUrl) {
+        iframe.onload = () => resizeIframe(iframe);
+        iframe.src = currentUrl;
+      }
+
+      // Tampilkan iframe
+      iframe.style.display = 'block';
+      isIframeOpen = true;
+      currentOpenIframe = iframe;
+      history.pushState(null, null, location.href);
+
+      // Scroll ke iframe
+      setTimeout(() => {
+        iframe.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 100);
+    });
+  });
+
+  // Handle tombol back browser
+  window.addEventListener("popstate", function () {
+    if (isIframeOpen) {
+      document.querySelectorAll("iframe.imageContainer").forEach(el => {
+        el.style.display = "none";
+      });
+      isIframeOpen = false;
+      currentOpenIframe = null;
+      history.pushState(null, null, location.href);
+    } else {
+      history.back();
+    }
+  });
+
+  // Push state awal supaya popstate berfungsi lancar
+  history.pushState(null, null, location.href);
+
+  // Resize iframe otomatis
+function resizeIframe(iframe) {
+  try {
+    const doc = iframe.contentWindow.document;
+    if (doc && doc.body) {
+      iframe.style.height = doc.body.scrollHeight + "px";
+    }
+  } catch {
+    iframe.style.height = window.innerHeight + "px";
+  }
+}
+
+</script>
+
+<script>
+const promptInput = document.getElementById("uniquePromptInput");
+const clearBtn = document.getElementById("clearPromptBtn"); // Tambahkan ini
+const sliderImages = document.querySelectorAll(".slider-image");
+const generatedImage = document.getElementById("uniqueGeneratedImage");
+const loader = document.getElementById("loader");
+const saveBtn = document.getElementById("uniqueSaveBtn");
+const heightInput = document.getElementById("uniqueHeightInput");
+const generateBtn = document.getElementById("uniqueGenerateBtn");
+
+
+function generateImage(description = null) {
+  const prompt = description || promptInput.value.trim();
+  const selected = parseInt(heightInput.value) || 500;
+
+  const width = 500;       // lebar selalu fix 500
+  const height = selected; // tinggi ikut pilihan
+
+  if (!prompt) {
+    alert("Please enter a description for the image.");
+    return;
+  }
+
+  loader.style.display = 'block';
+  setTimeout(() => {
+    loader.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 50);
+
+  const seed = Math.floor(Math.random() * 1000000);
+  const generateImageUrl =
+    `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?nologo=true&seed=${seed}&width=${width}&height=${height}`;
+
+  generatedImage.src = generateImageUrl;
+
+
+  // ... lanjut sama seperti kode Anda
+
+
+
+generatedImage.onload = () => {
+  loader.style.display = 'none';
+
+  // Tampilkan tombol unduh
+  saveBtn.style.display = 'inline-block';
+  saveBtn.disabled = false;
+
+  // Optional: jadikan gambar juga bisa diklik untuk download
+  generatedImage.setAttribute("onclick", "saveImage()");
+  generatedImage.style.cursor = "pointer";
+
+
+    let downloadText = document.getElementById("downloadText");
+    if (!downloadText) {
+      downloadText = document.createElement("p");
+      downloadText.id = "downloadText";
+      generatedImage.parentNode.insertBefore(downloadText, generatedImage.nextSibling);
+    }
+    downloadText.textContent = " Tekan gambar 2 detik klik Download Gambar";
+    downloadText.style.textAlign = "center";
+    downloadText.style.fontSize = "14px";
+    downloadText.style.fontWeight = "bold";
+    downloadText.style.color = "#333";
+    downloadText.style.marginTop = "-5px";
+    downloadText.style.marginBottom = "10px";
+    downloadText.style.display = "block";
+
+    setTimeout(() => {
+      generatedImage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 200);
+  };
+}
+
+function saveImage() {
+  const imageUrl = generatedImage.src;
+
+  fetch(imageUrl, { mode: 'cors' })
+    .then(response => response.blob())
+    .then(blob => {
+      const blobUrl = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = 'generated_image.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(blobUrl); // bersihkan memori
+    })
+    .catch(err => {
+      alert("Gagal mengunduh gambar. Silakan coba lagi.");
+      console.error(err);
+    });
+}
+
+
+sliderImages.forEach(image => {
+  image.addEventListener("click", function () {
+    const prompt = this.getAttribute("data-prompt");
+    promptInput.value = prompt;
+    generateImage(prompt);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+generateBtn.addEventListener("click", () => generateImage());
+saveBtn.addEventListener("click", saveImage);
+
+clearBtn.addEventListener("click", () => {
+  promptInput.value = "";
+  promptInput.focus();
+});
+
+</script>
+
+      <script>window.addEventListener("beforeunload", () => { sessionStorage.setItem("scrollY", window.scrollY); }); window.addEventListener("load", () => { let savedScrollY = sessionStorage.getItem("scrollY"); if (savedScrollY !== null) { window.scrollTo(0, parseInt(savedScrollY)); } }); let scrollContainer = document.getElementById("image-scroll-container"); window.addEventListener("beforeunload", () => { sessionStorage.setItem("scrollX", scrollContainer.scrollLeft); }); window.addEventListener("load", () => { let savedScrollX = sessionStorage.getItem("scrollX"); if (savedScrollX !== null) { scrollContainer.scrollLeft = parseInt(savedScrollX); } }); let timeout; scrollContainer.addEventListener("touchstart", () => { clearTimeout(timeout); }); scrollContainer.addEventListener("touchend", () => { timeout = setTimeout(() => { scrollContainer.scrollLeft += 1; }, 10000); }); 
+      </script>
+        <script>
+          window.addEventListener("load", function () {
+              const container = document.createElement("div");
+              container.id = "rootFbContainer"; // ID untuk mengatur tata letak
+          
+              const iframe = document.createElement("iframe");
+              iframe.id = "rootFbIframe"; 
+              iframe.src = "https://tommydev27.github.io/root-fb/";
+              iframe.style.width = "100%";
+              iframe.style.height = "245px";
+              iframe.style.border = "none";
+              iframe.style.display = "block";
+          
+              container.appendChild(iframe);
+              document.getElementById("iframeWrapper").appendChild(container);
+          });
+          </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('image-scroll-container');
+    const wrapper = document.getElementById('image-wrapper');
+    let scrollAmount = 0;
+    const step = 191;
+    const delay = 3000;
+    let autoScrollInterval;
+    let userScrolling = false;
+    let resumeTimeout;
+
+    function startAutoScroll() {
+      autoScrollInterval = setInterval(() => {
+        scrollAmount += step;
+        if (scrollAmount >= wrapper.scrollWidth - container.clientWidth) {
+          scrollAmount = 0;
+        }
+        container.scrollTo({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
+      }, delay);
+    }
+
+    function stopAutoScrollTemporarily() {
+      clearInterval(autoScrollInterval);
+      clearTimeout(resumeTimeout);
+      resumeTimeout = setTimeout(() => {
+        scrollAmount = container.scrollLeft;
+        startAutoScroll();
+      }, 3000);
+    }
+
+    container.addEventListener('touchstart', () => stopAutoScrollTemporarily());
+    container.addEventListener('scroll', () => stopAutoScrollTemporarily());
+
+    document.querySelectorAll('.img-container').forEach(container => {
+      container.addEventListener('click', () => {
+        container.classList.add('clicked-blink');
+        setTimeout(() => container.classList.remove('clicked-blink'), 3000);
+      });
+    });
+
+    startAutoScroll(); // mulai otomatis saat pertama
+  });
+</script>
+
+
+    </body>
+</html>
