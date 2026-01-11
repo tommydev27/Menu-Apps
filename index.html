@@ -914,45 +914,7 @@ body.dark-mode .fas.fa-dice {
             background: #333;
             color: #04f105;
           }
-  #toolbox-options {
-    margin-top: 12px;
-    display: grid;
-    gap: 8px;
-    width: 100%;
-  }
 
-  .toolbox-button {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 14px;
-    border-radius: 10px;
-    border: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    color: inherit;
-    text-align: left;
-    cursor: pointer;
-    font-size: 18px;
-    transition: transform .08s ease, background .12s ease, box-shadow .12s ease;
-    border: solid 0.5px #ccc;
-  }
-
-  .toolbox-button:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-    box-shadow: 0 6px 18px rgba(2,6,23,0.45);
-  }
-
-  .toolbox-button i {
-    width: 32px;
-    text-align: center;
-    font-size: 24px;
-    opacity: .95;
-  }
-
-  .toolbox-text { font-weight: 700; color: #333;}
-  .toolbox-sub { display:block; font-weight:500; font-size:12px; opacity:.85; margin-top:2px; color: #444;}
-  .toolbox-blue  { color: #6e90f7; }
       </style>
   </head>
 <body>
@@ -972,7 +934,7 @@ body.dark-mode .fas.fa-dice {
   .big-text1 {
     font-size: 20px;
   color: #5fa8ff;
-  margin-top: -710px;
+  margin-top: -760px;
 
   }
 
@@ -1004,106 +966,201 @@ body.dark-mode .fas.fa-dice {
 </style>
     <a class="bold"> 
 <div class="container1">
-  <div class="big-text1"><i class="fab fa-earlybirds"></i></div>
-  <div class="divider1"></div>
+
   <div class="small-text1">
-   Alat Karakter Teks - Seni Teks &
-    Buat gambar Ai & Ascii</br>
+   Alat Karakter Teks &
+    Buat gambar</br>
     
   <div id="toolbox-options">
-<button class="toolbox-button" onclick="toolboxGo('idcard')">
-    <img 
-      src="https://static.xx.fbcdn.net/rsrc.php/v4/yj/r/tR3tk_R_CQF.png?_nc_eh=2%2C79e96e74d7c9caa5b811c8ba4d3f541c%2CAUdGcWwwrcc_s7Dn-ejPoLsLheL8rA60L_etXKX651qJsdkKc_dIgHj0FGIMpyuiPwM"
-      style=" height:35px; object-fit:contain;"
-    >
-  <div>
-    <span class="toolbox-text">iD card pw</span>
-    <span class="toolbox-sub">Generator kartu identitas palsu</span>
-  </div>
-</button>
 
-<button class="toolbox-button" onclick="toolboxGo('idcard1')">
-      <i class="fas fa-id-card style toolbox-blue" style="color:red;"></i>
-      <div>
-    <span class="toolbox-text">SIM CARD</span>
-    <span class="toolbox-sub">Generator kartu sim</span>
-  </div>
-</button>
-
-<button class="toolbox-button" onclick="toolboxGo('idcard2')">
-      <i class="fas fa-keyboard style toolbox-blue" style="color:#3e94f9;"></i>
-      <div>
-    <span class="toolbox-text">Multy Keyboard</span>
-    <span class="toolbox-sub">Keyboard Karakter Lengkap</span>
-  </div>
-</button>
-
-    <button class="toolbox-button" onclick="toolboxGo('catatan1')">
-      <i class="fas fa-border-style toolbox-blue" style="color:#a3ce71;"></i>
-      <div><span class="toolbox-text">Generator ASC</span><span class="toolbox-sub">Editor gambar ASC</span></div>
-    </button>
-    <button class="toolbox-button" onclick="toolboxGo('seni')">
-      <i class="fa-brands fa-slack toolbox-blue"></i>
-      <div><span class="toolbox-text">Seni Teks</span><span class="toolbox-sub">ASCII art</span></div>
-    </button>
-    <button class="toolbox-button" onclick="toolboxGo('catatan')">
-      <i class="fa-solid fa-book-open toolbox-blue" style="color:#f35369;"></i>
-      <div><span class="toolbox-text">Blok Dua Catatan</span><span class="toolbox-sub">Editor catatan</span></div>
-    </button>
-    <button class="toolbox-button" onclick="toolboxGo('chars')">
-      <i class="fa-solid fa-font " style="color:#8c72cb;"></i>
-      <div><span class="toolbox-text">Unicode Explorer</span><span class="toolbox-sub">Karakter global</span></div>
-    </button>
-    <button class="toolbox-button" onclick="toolboxGo('font')">
-      <i class="fa-brands fa-facebook toolbox-blue"></i>
-      <div><span class="toolbox-text">Font nama Unik fb</span><span class="toolbox-sub">Nama keren FB</span></div>
-    </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('font2')">
-      <i class="fab fa-foursquare" style="color:#ffb451;"></i>
-      <div><span class="toolbox-text">Font Seni Generator</span><span class="toolbox-sub">Nama keren kreatif</span></div>
-    </button>
-
-    <button class="toolbox-button" onclick="toolboxGo('font3')">
-      <i class="fas fa-image toolbox-blue"></i>
-      <div><span class="toolbox-text">Font Seni Gambar</span><span class="toolbox-sub">Buat gambar kreatif</span></div>
-    </button>
-    <button class="toolbox-button" onclick="toolboxGo('glitch')">
-      <i class="fas fa-barcode "style="color:#da0606;"></i>
-      <div><span class="toolbox-text">Glitch Text</span><span class="toolbox-sub">Efek glitch</span></div>
-    </button>
-
-
-<script>
-function toolboxGo(page){
-  const url = {
-    idcard: 'https://tommydev27.github.io/FakeID/',
-    idcard1: 'https://tommydev27.github.io/Sim-card-pw/',
-    idcard2: 'https://tommydev27.github.io/Multi-Keyboartm/',
-    seni: 'https://tommydev27.github.io/generatorascii/',
-    hitung: 'https://tommydev27.github.io/Penghutung-karakter/',
-    font: 'https://tommydev27.github.io/font-unikrsfb/',
-    font3: 'https://tommydev27.github.io/tommy.website3/',
-    font2: 'https://tommydev27.github.io/tm-textGz',
-    glitch: 'https://tommydev27.github.io/glitch-text/',
-    chars: 'https://tommydev27.github.io/unicode-explorerTM/',
-    catatan: 'https://tommydev27.github.io/Blok-dua-catatan-koreksi-catatan-/',
-    catatan1: 'https://tommydev27.github.io/Tm-generator-texs/'
-  }[page];
-  if (url) location.href = url;
+    <style>
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Default HP: 2 kolom */
+    gap: 12px;
+    width: 100%;
+    max-width: 500px; /* Batas lebar di HP */
+    margin: 0 auto;
 }
 
-const ham = document.getElementById('hamburger');
-const panel = document.getElementById('sidepanel');
+/* 2. Tambahkan Media Query untuk Mode Desktop */
+@media (min-width: 768px) {
+    .menu-grid {
+        max-width: 1200px; /* Lebar maksimal di Desktop lebih luas */
+        grid-template-columns: repeat(4, 1fr); /* Menjadi 4 kolom di Desktop */
+        gap: 20px;
+    }
 
-ham.onclick = () => {
-  panel.classList.toggle('open');
-};
+    .icon {
+        font-size: 32px; /* Icon sedikit lebih besar di desktop */
+    }
 
-document.getElementById('hamburger').addEventListener('click', function() {
-  this.classList.toggle('active');
-});
+    .label {
+        font-size: 18px; /* Teks sedikit lebih besar */
+    }
+}
+        /* Styling Item Menu */
+        .menu-item {
+            background: white;
+            border-radius: 12px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            border: 1px solid #e4e6eb;
+        }
 
+        /* Efek saat ditekan */
+        .menu-item:active {
+            background: #e4e6eb;
+            transform: scale(0.98);
+        }
+
+        /* Styling Icon */
+        .icon {
+            font-size: 24px;
+        }
+
+        /* Label Teks */
+        .label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #050505;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Warna spesifik icon agar mirip gambar */
+        .ic-dashboard { color: #1877f2; }
+        .ic-messages { color: #a335ee; }
+        .ic-groups { color: #2196f3; }
+        .ic-friends { color: #1877f2; }
+        .ic-reels { color: #f02849; }
+        .ic-market { color: #1877f2; }
+        .ic-pages { color: #f7b928; }
+        .ic-saved { color: #9333ea; }
+        .ic-memories { color: #18abff; }
+        .ic-birthday { color: #ff5a5f; }
+        .ic-events { color: #f35e59; }
+        .ic-meta { color: #0064e0; }
+        .ic-home { color: #f3a033; }
+        .ic-ig { color: #e1306c; }
+
+    </style>
+</head>
+<body>
+
+    <div class="menu-grid" id="menuGrid">
+        <div class="menu-item" onclick="handleKlik('Dasbor profesional')">
+            <i class="far fa-address-card icon ic-dashboard"></i>
+            <span class="label">iD card </span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Pesan')">
+            <i class="fas fa-id-card icon ic-messages"></i>
+            <span class="label">Sim Card</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Grup')">
+            <i class="fas fa-keyboard icon ic-groups"></i>
+            <span class="label">Multy Keyboard</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Teman')">
+            <i class="fa-solid fa-font icon ic-friends"></i>
+            <span class="label">Unicode Explorer</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Reels')">
+            <i class="fab fa-centos icon ic-reels"></i>
+            <span class="label">Seni Teks Art</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Marketplace')">
+            <i class="fab fa-foursquare icon ic-market"></i>
+            <span class="label">Font nama Unik</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Halaman')">
+            <i class="fab fa-fonticons-fi icon ic-pages"></i>
+            <span class="label">Seni Font teks</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Tersimpan')">
+            <i class="fas fa-barcode icon ic-saved"></i>
+            <span class="label">Glitch Text</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Kenangan')">
+            <i class="fas fa-image icon ic-memories"></i>
+            <span class="label">Image Art</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Ulang Tahun')">
+            <i class="fas fa-chalkboard-teacher icon ic-birthday"></i>
+            <span class="label">Generator Gambar</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Acara')">
+            <i class="fa-solid fa-book-open icon ic-events"></i>
+            <span class="label">Blok Dua Catatan</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Verifikasi Meta')">
+            <i class="fa-solid fa-circle-check icon ic-meta"></i>
+            <span class="label">Verifikasi Meta</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Beranda')">
+            <i class="fa-solid fa-calendar-check icon ic-home"></i>
+            <span class="label">Beranda</span>
+        </div>
+
+        <div class="menu-item" onclick="handleKlik('Instagram Lite')">
+            <i class="fa-brands fa-instagram icon ic-ig"></i>
+            <span class="label">Instagram Lite</span>
+        </div>
+    </div>
+
+<script>
+    function handleKlik(namaMenu) {
+        // 1. DAFTAR LINK: Masukkan link tujuan Anda di sini
+        const daftarLink = {
+            "Dasbor profesional": "https://tommydev27.github.io/FakeID/",
+            "Pesan": "https://tommydev27.github.io/Sim-card-pw/",
+            "Grup": "https://tommydev27.github.io/Multi-Keyboartm/",
+            "Teman": "https://tommydev27.github.io/unicode-explorerTM/",
+            "Reels": "https://tommydev27.github.io/generatorascii/",
+            "Marketplace": "https://tommydev27.github.io/font-unikrsfb/",
+            "Halaman": "https://tommydev27.github.io/tm-textGz/",
+            "Tersimpan": "https://tommydev27.github.io/glitch-text/",
+            "Kenangan": "https://tommydev27.github.io/Tm-generator-texs/",
+            "Ulang Tahun": "https://tommydev27.github.io/tommy.website3/",
+            "Acara": "https://tommydev27.github.io/Blok-dua-catatan-koreksi-catatan-/",
+            "Verifikasi Meta": "https://about.meta.com/technologies/meta-verified/",
+            "Beranda": "https://www.facebook.com/",
+            "Instagram Lite": "https://www.instagram.com/"
+        };
+
+        // 2. LOGIKA PENGAMBILAN LINK
+        const urlTujuan = daftarLink[namaMenu];
+
+        // 3. EKSEKUSI
+        if (urlTujuan) {
+            // Membuka di tab baru agar aplikasi utama tidak tertutup
+            window.open(urlTujuan, '_blank'); 
+            
+            // Atau jika ingin pindah di tab yang sama, gunakan:
+            // window.location.href = urlTujuan;
+        } else {
+            alert("Maaf, link untuk " + namaMenu + " belum tersedia.");
+        }
+    }
 </script>
 
   </div>
