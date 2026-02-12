@@ -608,6 +608,11 @@ body.dark-mode h2 {
         .ic-meta { color: #0064e0; }
         .ic-home { color: #f3a033; }
         .ic-ig { color: #e1306c; }
+        
+        .shield-icon { width: 30px; height: 30px; fill: #1877F2;  }
+        
+
+        .logo-icon { font-size: 20px; border: solid 2px #1877F2;border-radius: 50px; }
     </style>
 </head>
 <body>
@@ -619,12 +624,15 @@ body.dark-mode h2 {
     <div class="menu-grid" id="menuGrid">
    
         <div class="menu-item" onclick="handleKlik('avatar')">
-            <i class="fas fa-shield-halved icon ic-dashboard"></i>
-            <span class="label">Avatar Guard fb </span>
+          
+            <div class="shield-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.47 4.14-3.13 7.85-7 9.01v-9.01H5V6.3l7-3.11v8.8z"></path></svg>
+                </div>
+            <span class="label">Avatar Guard </span>
         </div>
 
         <div class="menu-item" onclick="handleKlik('cookietoken')">
-            <i class="fas fa-cookie icon ic-dashb"></i>
+        <div class="logo-box"><span class="logo-icon">🍪</span></div>
             <span class="label">Cokie Token</span>
         </div>
         <div class="menu-item" onclick="handleKlik('Dasbor profesional')">
